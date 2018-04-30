@@ -19,8 +19,9 @@ Add hydrogens using other softwares like Avogadro, and save as mol2 format. Then
 Put the protein and ligand structure into a single pdb, and relax in internal coordinates:
 
     cat pro.pdb LIG_0001.pdb > complex.pdb
-    /path/of/rosetta/source/bin/relax.mpi.linuxgccrelease -s complex.pdb -extra_res_fa LIG.params -relax:constrain_relax_to_start_coords -ramp_constraints false -relax:coord_constrain_sidechains -nstruct 40 \
-      -ex1 -ex2 -use_input_sc -flip_HNQ -no_optH false
+    /path/of/rosetta/source/bin/relax.mpi.linuxgccrelease -s complex.pdb -extra_res_fa LIG.params \
+      -relax:constrain_relax_to_start_coords -ramp_constraints false -relax:coord_constrain_sidechains \
+      -nstruct 40 -ex1 -ex2 -use_input_sc -flip_HNQ -no_optH false
 
 ### 1.2 Relax in Cartesian space
 Select the structure with the lowest score, fix the ligand with a movemap (not necessary):
@@ -30,9 +31,10 @@ Select the structure with the lowest score, fix the ligand with a movemap (not n
 
 Relax the structure in Cartesian coordinates:
 
-    /path/of/rosetta/source/bin/relax.mpi.linuxgccrelease -s complex.pdb -extra_res_fa LIG.params -relax:constrain_relax_to_start_coords -ramp_constraints true -relax:coord_constrain_sidechains -nstruct 200 \
-      -ex1 -ex2 -use_input_sc -flip_HNQ -no_optH false -relax:cartesian -score:weights talaris2014_cart \
-      -in:file:movemap movemap -crystal_refine
+    /path/of/rosetta/source/bin/relax.mpi.linuxgccrelease -s complex.pdb -extra_res_fa LIG.params \
+      -relax:constrain_relax_to_start_coords -ramp_constraints true -relax:coord_constrain_sidechains \
+      -nstruct 200 -ex1 -ex2 -use_input_sc -flip_HNQ -no_optH false -relax:cartesian -score:weights \
+      talaris2014_cart -in:file:movemap movemap -crystal_refine
 
 ## 2. Pocket localization and DDG calculation
 
