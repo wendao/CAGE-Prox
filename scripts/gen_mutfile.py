@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import sys
 
 def write_mutfile( pos, nat, mut ):
