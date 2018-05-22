@@ -81,7 +81,7 @@ The first line starts with **total** and the number of all mutations, in this ca
 
 First we need to map the pdb residue number to its index
 
-    /path/of/rosetta/source/scripts/python/public/pdb2fasta.py pro.pdb > pro.fasta
+    /path/of/rosetta/source/src/python/apps/public/pdb2fasta.py pro.pdb > pro.fasta
     get_seq_list.sh pro.fasta > seq.pro.txt
 
 Then, generate single mutation information line by line
