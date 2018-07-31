@@ -1,4 +1,4 @@
-# Computer Aided and Genetically Encoded PROimal decaging (CAGE-Prox)
+# Computer Aided and Genetically Encoded PROXimal decaging (CAGE-Prox)
 
 ## 1. Structure Preparation
 
