@@ -30,7 +30,7 @@ def main():
         cmd_cart_ddg = sys.argv[3]
     if len(sys.argv)>4:
         extra_options = ""
-        for op in sys.argv[4:]
+        for op in sys.argv[4:]:
             extra_options += op + " "
 
     #nproc = 1

@@ -45,6 +45,7 @@ Relax the structure in Cartesian coordinates:
     /path/of/rosetta/source/bin/relax.mpi.linuxgccrelease \
       -s complex.pdb \
       -extra_res_fa LIG.params \
+      -score:extra_improper_file LIG.tors \
       -relax:constrain_relax_to_start_coords \
       -ramp_constraints true -relax:coord_constrain_sidechains \
       -nstruct 200 \
