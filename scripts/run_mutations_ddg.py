@@ -3,8 +3,11 @@ import sys, os
 from subprocess import *
 import multiprocessing
 
-cmd_cart_ddg = "~/rosetta/cart_ddg/source/bin/cartesian_ddg.linuxgccrelease"
-extra_options = "-extra_res_fa LIG.params -score:extra_improper_file LIG.tors"
+#cmd_cart_ddg = "~/rosetta/cart_ddg/source/bin/cartesian_ddg.linuxgccrelease"
+cmd_cart_ddg = "~/work/Rosetta/rosetta.source.release-371/main/source/bin/cartesian_ddg.mpi.linuxgccrelease"
+#extra_options = "-extra_res_fa LIG.params -score:extra_improper_file LIG.tors"
+#extra_options = "-extra_res_fa ../LIG.params"
+extra_options = ""
 
 def save_del( fn ):
     try:
@@ -15,7 +18,7 @@ def save_del( fn ):
 def calc_ddg( args ):
     pdb = args[0]
     resfile = args[1]
-    cmd =  cmd_cart_ddg + " -s " + pdb + " -ddg::mut_file " + resfile + " -relax:min_type lbfgs_armijo_nonmonotone -ex1 -ex2 -use_input_sc -flip_HNQ -ddg:iterations 3 -mute all -unmute apps.pilot.wendao.ddg -fa_max_dis 9.0 -ddg::dump_pdbs false -bbnbr 1 -score:weights talaris2014_cart -interface_ddg 1 -optimization:default_max_cycles 200 -crystal_refine -relax:cartesian " + extra_options
+    cmd =  cmd_cart_ddg + " -s " + pdb + " -ddg::mut_file " + resfile + " -relax:min_type lbfgs_armijo_nonmonotone -ex1 -ex2 -use_input_sc -flip_HNQ -ddg:iterations 3 -mute all -unmute apps.pilot.wendao.ddg -fa_max_dis 9.0 -ddg::dump_pdbs false -bbnbrs 1 -score:weights ref2015_cart -interface_ddg 1 -optimization:default_max_cycles 200 -crystal_refine -relax:cartesian " + extra_options
     print cmd
     return 0
 
